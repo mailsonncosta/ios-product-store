@@ -11,5 +11,28 @@ import CoreData
 
 @objc(Cash)
 public class Cash: NSManagedObject {
+    
+    enum CodingKeys: String, CodingKey {
+        case title, bannerURL, cashDescription
+    }
 
+    required convenience public init(from decoder: Decoder) throws {
+        guard let context = decoder.userInfo[CodingUserInfoKey.managedObjectContext] as? NSManagedObjectContext else {
+            throw DecoderConfigurationError.missingManagedObjectContext
+        }
+
+        self.init(context: context)
+
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        self.title = try values.decode(String.self, forKey: .title)
+        self.bannerURL = try values.decode(String.self, forKey: .bannerURL)
+        self.cashDescription = try values.decode(String.self, forKey: .cashDescription)
+    }
+    
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(title, forKey: .title)
+        try container.encode(bannerURL, forKey: .bannerURL)
+        try container.encode(cashDescription, forKey: .cashDescription)
+    }
 }
