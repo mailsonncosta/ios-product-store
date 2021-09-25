@@ -16,6 +16,12 @@
 		C71A9BD226FFD9E400528F12 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C71A9BD026FFD9E400528F12 /* LaunchScreen.storyboard */; };
 		C71A9BDD26FFD9E400528F12 /* DigioStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71A9BDC26FFD9E400528F12 /* DigioStoreTests.swift */; };
 		C71A9BE826FFD9E400528F12 /* DigioStoreUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71A9BE726FFD9E400528F12 /* DigioStoreUITests.swift */; };
+		C7F4FF3126FFE21F0049230E /* Cash+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F4FF2B26FFE21F0049230E /* Cash+CoreDataClass.swift */; };
+		C7F4FF3226FFE21F0049230E /* Cash+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F4FF2C26FFE21F0049230E /* Cash+CoreDataProperties.swift */; };
+		C7F4FF3326FFE21F0049230E /* Product+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F4FF2D26FFE21F0049230E /* Product+CoreDataClass.swift */; };
+		C7F4FF3426FFE21F0049230E /* Product+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F4FF2E26FFE21F0049230E /* Product+CoreDataProperties.swift */; };
+		C7F4FF3526FFE21F0049230E /* Spotlight+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F4FF2F26FFE21F0049230E /* Spotlight+CoreDataClass.swift */; };
+		C7F4FF3626FFE21F0049230E /* Spotlight+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F4FF3026FFE21F0049230E /* Spotlight+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +57,12 @@
 		C71A9BE326FFD9E400528F12 /* DigioStoreUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DigioStoreUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C71A9BE726FFD9E400528F12 /* DigioStoreUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigioStoreUITests.swift; sourceTree = "<group>"; };
 		C71A9BE926FFD9E500528F12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C7F4FF2B26FFE21F0049230E /* Cash+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cash+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C7F4FF2C26FFE21F0049230E /* Cash+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cash+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C7F4FF2D26FFE21F0049230E /* Product+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Product+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C7F4FF2E26FFE21F0049230E /* Product+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Product+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C7F4FF2F26FFE21F0049230E /* Spotlight+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Spotlight+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C7F4FF3026FFE21F0049230E /* Spotlight+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Spotlight+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,14 +113,12 @@
 		C71A9BC126FFD9E200528F12 /* DigioStore */ = {
 			isa = PBXGroup;
 			children = (
-				C71A9BC226FFD9E200528F12 /* AppDelegate.swift */,
-				C71A9BC426FFD9E200528F12 /* SceneDelegate.swift */,
-				C71A9BC626FFD9E200528F12 /* ViewController.swift */,
-				C71A9BC826FFD9E200528F12 /* Main.storyboard */,
-				C71A9BCE26FFD9E400528F12 /* Assets.xcassets */,
-				C71A9BD026FFD9E400528F12 /* LaunchScreen.storyboard */,
 				C71A9BD326FFD9E400528F12 /* Info.plist */,
-				C71A9BCB26FFD9E200528F12 /* DigioStore.xcdatamodeld */,
+				C7F4FF3C26FFE2400049230E /* Helpers */,
+				C7F4FF3B26FFE2300049230E /* SupportFiles */,
+				C7F4FF3A26FFE2270049230E /* Models */,
+				C7F4FF3E26FFE2B40049230E /* Controllers */,
+				C71A9BC826FFD9E200528F12 /* Main.storyboard */,
 			);
 			path = DigioStore;
 			sourceTree = "<group>";
@@ -129,6 +139,54 @@
 				C71A9BE926FFD9E500528F12 /* Info.plist */,
 			);
 			path = DigioStoreUITests;
+			sourceTree = "<group>";
+		};
+		C7F4FF3A26FFE2270049230E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C7F4FF3D26FFE25A0049230E /* CoreData */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C7F4FF3B26FFE2300049230E /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				C71A9BC226FFD9E200528F12 /* AppDelegate.swift */,
+				C71A9BC426FFD9E200528F12 /* SceneDelegate.swift */,
+				C71A9BCE26FFD9E400528F12 /* Assets.xcassets */,
+				C71A9BD026FFD9E400528F12 /* LaunchScreen.storyboard */,
+				C71A9BCB26FFD9E200528F12 /* DigioStore.xcdatamodeld */,
+			);
+			path = SupportFiles;
+			sourceTree = "<group>";
+		};
+		C7F4FF3C26FFE2400049230E /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		C7F4FF3D26FFE25A0049230E /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				C7F4FF2B26FFE21F0049230E /* Cash+CoreDataClass.swift */,
+				C7F4FF2C26FFE21F0049230E /* Cash+CoreDataProperties.swift */,
+				C7F4FF2D26FFE21F0049230E /* Product+CoreDataClass.swift */,
+				C7F4FF2E26FFE21F0049230E /* Product+CoreDataProperties.swift */,
+				C7F4FF2F26FFE21F0049230E /* Spotlight+CoreDataClass.swift */,
+				C7F4FF3026FFE21F0049230E /* Spotlight+CoreDataProperties.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		C7F4FF3E26FFE2B40049230E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C71A9BC626FFD9E200528F12 /* ViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,9 +319,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7F4FF3526FFE21F0049230E /* Spotlight+CoreDataClass.swift in Sources */,
 				C71A9BCD26FFD9E200528F12 /* DigioStore.xcdatamodeld in Sources */,
+				C7F4FF3126FFE21F0049230E /* Cash+CoreDataClass.swift in Sources */,
 				C71A9BC726FFD9E200528F12 /* ViewController.swift in Sources */,
+				C7F4FF3326FFE21F0049230E /* Product+CoreDataClass.swift in Sources */,
 				C71A9BC326FFD9E200528F12 /* AppDelegate.swift in Sources */,
+				C7F4FF3226FFE21F0049230E /* Cash+CoreDataProperties.swift in Sources */,
+				C7F4FF3426FFE21F0049230E /* Product+CoreDataProperties.swift in Sources */,
+				C7F4FF3626FFE21F0049230E /* Spotlight+CoreDataProperties.swift in Sources */,
 				C71A9BC526FFD9E200528F12 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
