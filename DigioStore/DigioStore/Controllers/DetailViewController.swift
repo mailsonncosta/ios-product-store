@@ -9,9 +9,36 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
+    @IBOutlet weak var imageView: UIImageView!
+    
+    private var productData: DigioStoreProduct?
+    
+    private var enableBackButton = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        if let data = productData {
+            titleLabel.text = data.pName
+            descriptionLabel.text = data.pDescription
+        }
+    }
+    
+    @IBAction func backButtonPressed(_ sender: Any) {
+        DispatchQueue.main.async {
+            if self.enableBackButton {
+                self.enableBackButton = false
+                self.dismiss(animated: true, completion: {
+                    self.enableBackButton = true
+                })
+            }
+        }
+    }
+    
+    public func setProductData(_ data: DigioStoreProduct) {
+        productData = data
     }
 
 }
