@@ -13,8 +13,9 @@ class NetworkHelper {
     }
 
     static func downloadImage(from url: URL, completion: @escaping (Data?) -> Void) {
-        getData(from: url) { data, _, error in
-            guard let data = data, error == nil else {
+        getData(from: url) { data, response, error in
+            let httpResponse = response as! HTTPURLResponse // swiftlint:disable:this force_cast
+            guard let data = data, httpResponse.statusCode == 200, error == nil else {
                 completion(nil)
                 return
             }

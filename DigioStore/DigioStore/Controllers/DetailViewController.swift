@@ -23,12 +23,11 @@ class DetailViewController: UIViewController {
         if let data = productData {
             titleLabel.text = data.pName
             descriptionLabel.text = data.pDescription
+            imageView?.image = UIImage(named: "imageNotFound")
             NetworkHelper.downloadImage(from: URL.init(string: data.pImageURL)!, completion: { data in
-                if data == nil {
-                    print("error")
-                } else {
+                if let data = data {
                     DispatchQueue.main.async {
-                        self.imageView?.image = UIImage(data: data!)
+                        self.imageView?.image = UIImage(data: data)
                     }
                 }
             })
