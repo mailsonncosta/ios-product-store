@@ -9,8 +9,6 @@ import Foundation
 
 class DetailViewModel {
 
-    private var productData: DigioStoreProduct?
-
     init(_ data: DigioStoreProduct) {
         loadImageData(using: data.pImageURL)
         DetailLoader.delegate?.fillViewData(title: data.pName, description: data.pDescription)

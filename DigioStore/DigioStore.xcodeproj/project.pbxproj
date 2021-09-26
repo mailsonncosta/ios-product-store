@@ -21,7 +21,9 @@
 		C78E489927003211006A1D0F /* DigioApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78E489827003211006A1D0F /* DigioApi.swift */; };
 		C78E489E270034DE006A1D0F /* SectionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78E489D270034DE006A1D0F /* SectionCollectionViewCell.swift */; };
 		C78E48A72700D093006A1D0F /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78E48A62700D093006A1D0F /* DetailViewModel.swift */; };
-		C78E48AF2700D0C2006A1D0F /* DetailLoaderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78E48AE2700D0C2006A1D0F /* DetailLoaderProtocol.swift */; };
+		C78E48AF2700D0C2006A1D0F /* DetailViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78E48AE2700D0C2006A1D0F /* DetailViewProtocol.swift */; };
+		C78E48D02700E13B006A1D0F /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78E48CF2700E13B006A1D0F /* HomeViewModel.swift */; };
+		C78E48D52700E169006A1D0F /* HomeViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78E48D42700E169006A1D0F /* HomeViewProtocol.swift */; };
 		C7F4000A270008F30049230E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F40009270008F30049230E /* DetailViewController.swift */; };
 		C7F4001227000E870049230E /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F4001127000E870049230E /* NetworkHelper.swift */; };
 		C7F4FF3126FFE21F0049230E /* Cash+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F4FF2B26FFE21F0049230E /* Cash+CoreDataClass.swift */; };
@@ -88,7 +90,9 @@
 		C78E489827003211006A1D0F /* DigioApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigioApi.swift; sourceTree = "<group>"; };
 		C78E489D270034DE006A1D0F /* SectionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionCollectionViewCell.swift; sourceTree = "<group>"; };
 		C78E48A62700D093006A1D0F /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
-		C78E48AE2700D0C2006A1D0F /* DetailLoaderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLoaderProtocol.swift; sourceTree = "<group>"; };
+		C78E48AE2700D0C2006A1D0F /* DetailViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewProtocol.swift; sourceTree = "<group>"; };
+		C78E48CF2700E13B006A1D0F /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		C78E48D42700E169006A1D0F /* HomeViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewProtocol.swift; sourceTree = "<group>"; };
 		C7F40009270008F30049230E /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		C7F4001127000E870049230E /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		C7F4FF2B26FFE21F0049230E /* Cash+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cash+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -228,11 +232,19 @@
 		C78E48A52700D05C006A1D0F /* Detail */ = {
 			isa = PBXGroup;
 			children = (
-				C7F40009270008F30049230E /* DetailViewController.swift */,
 				C78E48A62700D093006A1D0F /* DetailViewModel.swift */,
-				C78E48AE2700D0C2006A1D0F /* DetailLoaderProtocol.swift */,
+				C78E48AE2700D0C2006A1D0F /* DetailViewProtocol.swift */,
 			);
 			path = Detail;
+			sourceTree = "<group>";
+		};
+		C78E48CE2700E116006A1D0F /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				C78E48CF2700E13B006A1D0F /* HomeViewModel.swift */,
+				C78E48D42700E169006A1D0F /* HomeViewProtocol.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		C7F4FF3A26FFE2270049230E /* Models */ = {
@@ -288,8 +300,10 @@
 		C7F4FF3E26FFE2B40049230E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C78E48CE2700E116006A1D0F /* Home */,
 				C78E48A52700D05C006A1D0F /* Detail */,
 				C71A9BC626FFD9E200528F12 /* HomeViewController.swift */,
+				C7F40009270008F30049230E /* DetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -541,6 +555,7 @@
 				C7F4FF3526FFE21F0049230E /* Spotlight+CoreDataClass.swift in Sources */,
 				C71A9BCD26FFD9E200528F12 /* DigioStore.xcdatamodeld in Sources */,
 				C7F4FF7726FFE7BC0049230E /* DecoderConfigurationError.swift in Sources */,
+				C78E48D02700E13B006A1D0F /* HomeViewModel.swift in Sources */,
 				C7F4FF3126FFE21F0049230E /* Cash+CoreDataClass.swift in Sources */,
 				C71A9BC726FFD9E200528F12 /* HomeViewController.swift in Sources */,
 				C7F4FF8726FFEE480049230E /* CoreDataTask.swift in Sources */,
@@ -554,8 +569,9 @@
 				C7F4001227000E870049230E /* NetworkHelper.swift in Sources */,
 				C7F4FF4626FFE4500049230E /* DigioProductStore.swift in Sources */,
 				C7F4FF3226FFE21F0049230E /* Cash+CoreDataProperties.swift in Sources */,
+				C78E48D52700E169006A1D0F /* HomeViewProtocol.swift in Sources */,
 				C7F4FF6426FFE5D20049230E /* Cash+DigioStoreProduct.swift in Sources */,
-				C78E48AF2700D0C2006A1D0F /* DetailLoaderProtocol.swift in Sources */,
+				C78E48AF2700D0C2006A1D0F /* DetailViewProtocol.swift in Sources */,
 				C7F4FF3426FFE21F0049230E /* Product+CoreDataProperties.swift in Sources */,
 				C7F4FF3626FFE21F0049230E /* Spotlight+CoreDataProperties.swift in Sources */,
 				C71A9BC526FFD9E200528F12 /* SceneDelegate.swift in Sources */,

@@ -1,5 +1,5 @@
 //
-//  DetailLoaderProtocol.swift
+//  DetailViewProtocol.swift
 //  DigioStore
 //
 //  Created by Mailson Costa on 26/09/21.

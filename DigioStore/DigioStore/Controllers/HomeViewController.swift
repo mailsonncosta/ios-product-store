@@ -8,77 +8,27 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-    var products = [Product]()
-    var spotlights = [Spotlight]()
-    var cash = Cash.init()
-
-    private var productData: DigioStoreProduct?
 
     @IBOutlet weak var spotlightCollectionView: UICollectionView!
     @IBOutlet weak var productsCollectionView: UICollectionView!
 
     @IBOutlet weak var cashImageView: UIImageView!
 
+    private var homeViewModel = HomeViewModel()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        callProductsFromServer()
+        initHomeViewProtocol()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination as! DetailViewController // swiftlint:disable:this force_cast
-        destination.fillData(with: productData!)
+        destination.fillData(with: homeViewModel.productData!)
     }
 
     @IBAction func cashButtonPressed(_ sender: Any) {
-        self.productData = cash
+        homeViewModel.setSelectedProduct(homeViewModel.cash)
         self.performSegue(withIdentifier: "detailSegue", sender: self)
-    }
-
-    private func callProductsFromServer() {
-        //swiftlint:disable:next force_cast
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-
-        DigioApi.getProducts(completion: { response, error in
-            if error != nil {
-                print("error")
-            } else {
-                let productsJson = response["products"] as! [[String: Any]] //swiftlint:disable:this force_cast
-                let spotlightsJson = response["spotlight"]  as! [[String: Any]]//swiftlint:disable:this force_cast
-                let cashJson = response["cash"]  as! [String: Any]//swiftlint:disable:this force_cast
-
-                do {
-                    for product in productsJson {
-                        self.products.append(try Product(context: context, dictionary: product))
-                    }
-
-                    for spotlight in spotlightsJson {
-                        self.spotlights.append(try Spotlight(context: context, dictionary: spotlight))
-                    }
-
-                    self.cash = try Cash(context: context, dictionary: cashJson)
-                    DispatchQueue.main.async {
-                        self.cashImageView?.image = UIImage(named: "imageNotFound")
-                    }
-                    NetworkHelper.downloadImage(from: URL.init(string: self.cash.pImageURL)!, completion: { data in
-                        if let data = data {
-                            DispatchQueue.main.async {
-                                self.cashImageView.image = UIImage(data: data)
-                            }
-                        }
-                    })
-
-                } catch {
-                    print("Error creating the data")
-                }
-
-                DispatchQueue.main.async {
-                    self.spotlightCollectionView.reloadData()
-                    self.productsCollectionView.reloadData()
-                }
-
-                print(response)
-            }
-        })
     }
 
 }
@@ -86,7 +36,8 @@ class HomeViewController: UIViewController {
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return collectionView == spotlightCollectionView ? spotlights.count : products.count
+        return collectionView == spotlightCollectionView
+            ? homeViewModel.spotlights.count : homeViewModel.products.count
     }
 
     func collectionView(_ collectionView: UICollectionView,
@@ -96,12 +47,12 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         if collectionView == spotlightCollectionView {
             cell = collectionView.dequeueReusableCell(withReuseIdentifier: "spotlightSectionCell",
                    for: indexPath) as! SectionCollectionViewCell//swiftlint:disable:this force_cast
-            imageString = spotlights[indexPath.row].bannerURL ?? ""
+            imageString = homeViewModel.spotlights[indexPath.row].bannerURL ?? ""
 
         } else {
             cell = collectionView.dequeueReusableCell(withReuseIdentifier: "productSectionCell",
                    for: indexPath) as! SectionCollectionViewCell//swiftlint:disable:this force_cast
-            imageString = products[indexPath.row].imageURL ?? ""
+            imageString = homeViewModel.products[indexPath.row].imageURL ?? ""
         }
 
         cell.imageView?.image = UIImage(named: "imageNotFound")
@@ -117,9 +68,31 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.productData = collectionView == spotlightCollectionView
-        ? spotlights[indexPath.row] : products[indexPath.row]
+        let digioProduct: DigioStoreProduct = collectionView == spotlightCollectionView
+            ? homeViewModel.spotlights[indexPath.row] : homeViewModel.products[indexPath.row]
+        homeViewModel.setSelectedProduct(digioProduct)
         self.performSegue(withIdentifier: "detailSegue", sender: self)
+    }
+
+}
+
+extension HomeViewController: HomeViewProtocol {
+
+    func initHomeViewProtocol() {
+        HomeLoader.delegate = self
+    }
+
+    func cashImageSucessfulLoaded(_ imageData: Data) {
+        DispatchQueue.main.async {
+            self.cashImageView.image = UIImage(data: imageData)
+        }
+    }
+
+    func updateCollectionData() {
+        DispatchQueue.main.async {
+            self.spotlightCollectionView.reloadData()
+            self.productsCollectionView.reloadData()
+        }
     }
 
 }
