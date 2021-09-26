@@ -28,6 +28,8 @@
 		C7F4FF6426FFE5D20049230E /* Cash+DigioStoreProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F4FF6326FFE5D20049230E /* Cash+DigioStoreProduct.swift */; };
 		C7F4FF7226FFE7A60049230E /* CodingUserInfoKeyExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F4FF7126FFE7A60049230E /* CodingUserInfoKeyExt.swift */; };
 		C7F4FF7726FFE7BC0049230E /* DecoderConfigurationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F4FF7626FFE7BC0049230E /* DecoderConfigurationError.swift */; };
+		C7F4FF7F26FFECBC0049230E /* DigioProductManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F4FF7E26FFECBC0049230E /* DigioProductManager.swift */; };
+		C7F4FF8726FFEE480049230E /* CoreDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F4FF8626FFEE480049230E /* CoreDataTask.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,8 @@
 		C7F4FF6326FFE5D20049230E /* Cash+DigioStoreProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cash+DigioStoreProduct.swift"; sourceTree = "<group>"; };
 		C7F4FF7126FFE7A60049230E /* CodingUserInfoKeyExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingUserInfoKeyExt.swift; sourceTree = "<group>"; };
 		C7F4FF7626FFE7BC0049230E /* DecoderConfigurationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecoderConfigurationError.swift; sourceTree = "<group>"; };
+		C7F4FF7E26FFECBC0049230E /* DigioProductManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigioProductManager.swift; sourceTree = "<group>"; };
+		C7F4FF8626FFEE480049230E /* CoreDataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTask.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +163,7 @@
 			children = (
 				C7F4FF3D26FFE25A0049230E /* CoreData */,
 				C7F4FF4526FFE4500049230E /* DigioProductStore.swift */,
+				C7F4FF7E26FFECBC0049230E /* DigioProductManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -186,6 +191,7 @@
 		C7F4FF3D26FFE25A0049230E /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				C7F4FF8626FFEE480049230E /* CoreDataTask.swift */,
 				C7F4FF2B26FFE21F0049230E /* Cash+CoreDataClass.swift */,
 				C7F4FF6326FFE5D20049230E /* Cash+DigioStoreProduct.swift */,
 				C7F4FF2C26FFE21F0049230E /* Cash+CoreDataProperties.swift */,
@@ -358,7 +364,9 @@
 				C7F4FF7726FFE7BC0049230E /* DecoderConfigurationError.swift in Sources */,
 				C7F4FF3126FFE21F0049230E /* Cash+CoreDataClass.swift in Sources */,
 				C71A9BC726FFD9E200528F12 /* ViewController.swift in Sources */,
+				C7F4FF8726FFEE480049230E /* CoreDataTask.swift in Sources */,
 				C7F4FF3326FFE21F0049230E /* Product+CoreDataClass.swift in Sources */,
+				C7F4FF7F26FFECBC0049230E /* DigioProductManager.swift in Sources */,
 				C71A9BC326FFD9E200528F12 /* AppDelegate.swift in Sources */,
 				C7F4FF7226FFE7A60049230E /* CodingUserInfoKeyExt.swift in Sources */,
 				C7F4FF5A26FFE5A10049230E /* Product+DigioStoreProduct.swift in Sources */,
