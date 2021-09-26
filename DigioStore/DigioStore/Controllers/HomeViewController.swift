@@ -44,22 +44,27 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var cell = SectionCollectionViewCell()
         var imageString = ""
+        var title = ""
         if collectionView == spotlightCollectionView {
             cell = collectionView.dequeueReusableCell(withReuseIdentifier: "spotlightSectionCell",
                    for: indexPath) as! SectionCollectionViewCell//swiftlint:disable:this force_cast
             imageString = homeViewModel.spotlights[indexPath.row].bannerURL ?? ""
-
+            title = homeViewModel.spotlights[indexPath.row].name ?? ""
         } else {
             cell = collectionView.dequeueReusableCell(withReuseIdentifier: "productSectionCell",
                    for: indexPath) as! SectionCollectionViewCell//swiftlint:disable:this force_cast
             imageString = homeViewModel.products[indexPath.row].imageURL ?? ""
+            title = homeViewModel.products[indexPath.row].name ?? ""
         }
 
         cell.imageView?.image = UIImage(named: "imageNotFound")
         NetworkHelper.downloadImage(from: URL.init(string: imageString)!, completion: { data in
-            if let data = data {
-                DispatchQueue.main.async {
+            DispatchQueue.main.async {
+                if let data = data {
                     cell.imageView?.image = UIImage(data: data)
+                } else {
+                    cell.titleLabel?.isHidden = false
+                    cell.titleLabel?.text = title
                 }
             }
         })
