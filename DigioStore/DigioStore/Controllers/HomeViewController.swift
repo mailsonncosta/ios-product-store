@@ -26,7 +26,7 @@ class HomeViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination as! DetailViewController // swiftlint:disable:this force_cast
-        destination.setProductData(productData!)
+        destination.fillData(with: productData!)
     }
 
     @IBAction func cashButtonPressed(_ sender: Any) {
@@ -84,6 +84,7 @@ class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return collectionView == spotlightCollectionView ? spotlights.count : products.count
     }
@@ -96,6 +97,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             cell = collectionView.dequeueReusableCell(withReuseIdentifier: "spotlightSectionCell",
                    for: indexPath) as! SectionCollectionViewCell//swiftlint:disable:this force_cast
             imageString = spotlights[indexPath.row].bannerURL ?? ""
+
         } else {
             cell = collectionView.dequeueReusableCell(withReuseIdentifier: "productSectionCell",
                    for: indexPath) as! SectionCollectionViewCell//swiftlint:disable:this force_cast
@@ -115,13 +117,9 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if collectionView == spotlightCollectionView {
-            self.productData = spotlights[indexPath.row]
-            self.performSegue(withIdentifier: "detailSegue", sender: self)
-        } else {
-            self.productData = products[indexPath.row]
-            self.performSegue(withIdentifier: "detailSegue", sender: self)
-        }
+        self.productData = collectionView == spotlightCollectionView
+        ? spotlights[indexPath.row] : products[indexPath.row]
+        self.performSegue(withIdentifier: "detailSegue", sender: self)
     }
 
 }

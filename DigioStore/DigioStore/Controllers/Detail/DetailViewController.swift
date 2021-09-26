@@ -14,24 +14,13 @@ class DetailViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
 
-    private var productData: DigioStoreProduct?
-
     private var enableBackButton = true
+    private var productData: DigioStoreProduct?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let data = productData {
-            titleLabel.text = data.pName
-            descriptionLabel.text = data.pDescription
-            imageView?.image = UIImage(named: "imageNotFound")
-            NetworkHelper.downloadImage(from: URL.init(string: data.pImageURL)!, completion: { data in
-                if let data = data {
-                    DispatchQueue.main.async {
-                        self.imageView?.image = UIImage(data: data)
-                    }
-                }
-            })
-        }
+        initDetailViewProtocol()
+        _ = DetailViewModel.init(productData!)
     }
 
     @IBAction func backButtonPressed(_ sender: Any) {
@@ -45,8 +34,27 @@ class DetailViewController: UIViewController {
         }
     }
 
-    public func setProductData(_ data: DigioStoreProduct) {
-        productData = data
+    public func fillData(with object: DigioStoreProduct) {
+        productData = object
+    }
+
+}
+
+extension DetailViewController: DetailViewProtocol {
+
+    func initDetailViewProtocol() {
+        DetailLoader.delegate = self
+    }
+
+    func imageSucessfulLoaded(_ imageData: Data) {
+        DispatchQueue.main.async {
+            self.imageView?.image = UIImage(data: imageData)
+        }
+    }
+
+    func fillViewData(title: String, description: String) {
+        titleLabel.text = title
+        descriptionLabel.text = description
     }
 
 }

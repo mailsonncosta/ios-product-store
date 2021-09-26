@@ -7,11 +7,11 @@
 
 extension Product: DigioStoreProduct {
     public var pName: String {
-        return name ?? ""
+        return name ?? "Nome não encontrado"
     }
 
     public var pDescription: String {
-        return productDescription ?? ""
+        return productDescription ?? "Descrição não encontrada"
     }
 
     public var pImageURL: String {

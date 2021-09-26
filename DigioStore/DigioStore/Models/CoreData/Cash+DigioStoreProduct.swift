@@ -7,11 +7,11 @@
 
 extension Cash: DigioStoreProduct {
     public var pName: String {
-        return title ?? ""
+        return title ?? "Título não encontrado"
     }
 
     public var pDescription: String {
-        return cashDescription ?? ""
+        return cashDescription ?? "Descrição não encontrada"
     }
 
     public var pImageURL: String {

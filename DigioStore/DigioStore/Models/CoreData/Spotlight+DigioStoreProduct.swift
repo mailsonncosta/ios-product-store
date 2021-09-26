@@ -7,11 +7,11 @@
 
 extension Spotlight: DigioStoreProduct {
     public var pName: String {
-        return name ?? ""
+        return name ?? "Nome não encontrado"
     }
 
     public var pDescription: String {
-        return spotlightDescription ?? ""
+        return spotlightDescription ?? "Descrição não encontrada"
     }
 
     public var pImageURL: String {
