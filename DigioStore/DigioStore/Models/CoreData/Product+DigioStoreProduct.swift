@@ -9,11 +9,11 @@ extension Product: DigioStoreProduct {
     public var pName: String {
         return name ?? ""
     }
-    
+
     public var pDescription: String {
         return productDescription ?? ""
     }
-    
+
     public var pImageURL: String {
         return imageURL ?? ""
     }

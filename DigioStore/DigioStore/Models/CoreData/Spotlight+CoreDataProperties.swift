@@ -9,7 +9,6 @@
 import Foundation
 import CoreData
 
-
 extension Spotlight {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Spotlight> {

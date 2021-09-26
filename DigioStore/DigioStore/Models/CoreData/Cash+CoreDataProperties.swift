@@ -9,7 +9,6 @@
 import Foundation
 import CoreData
 
-
 extension Cash {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Cash> {

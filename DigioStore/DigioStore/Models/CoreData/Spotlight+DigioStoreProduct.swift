@@ -9,11 +9,11 @@ extension Spotlight: DigioStoreProduct {
     public var pName: String {
         return name ?? ""
     }
-    
+
     public var pDescription: String {
         return spotlightDescription ?? ""
     }
-    
+
     public var pImageURL: String {
         return bannerURL ?? ""
     }

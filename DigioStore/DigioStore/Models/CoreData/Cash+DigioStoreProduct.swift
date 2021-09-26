@@ -9,13 +9,12 @@ extension Cash: DigioStoreProduct {
     public var pName: String {
         return title ?? ""
     }
-    
+
     public var pDescription: String {
         return cashDescription ?? ""
     }
-    
+
     public var pImageURL: String {
         return bannerURL ?? ""
     }
 }
-

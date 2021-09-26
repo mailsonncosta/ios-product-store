@@ -11,14 +11,14 @@ import CoreData
 
 @objc(Cash)
 public class Cash: NSManagedObject {
-    
+
     enum CodingKeys: String, CodingKey {
         case title, bannerURL, cashDescription
     }
 
     required public convenience init(context: NSManagedObjectContext, dictionary: [String: Any]) throws {
         self.init(context: context)
-        
+
         self.title = dictionary["title"] as? String
         self.bannerURL = dictionary["bannerURL"] as? String
         self.cashDescription = dictionary["description"] as? String
@@ -36,7 +36,7 @@ public class Cash: NSManagedObject {
         self.bannerURL = try values.decode(String.self, forKey: .bannerURL)
         self.cashDescription = try values.decode(String.self, forKey: .cashDescription)
     }
-    
+
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(title, forKey: .title)

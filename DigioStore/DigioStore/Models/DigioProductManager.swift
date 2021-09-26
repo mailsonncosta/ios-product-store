@@ -9,7 +9,7 @@ import UIKit
 import CoreData
 
 class DigioProductsManager {
- 
+
     // MARK: Contexts
 
     let backgroundcontext: NSManagedObjectContext
@@ -38,24 +38,28 @@ class DigioProductsManager {
     }
 
     private func createSpotlight(_ productData: DigioStoreProduct) {
-        let spotlight = NSEntityDescription.insertNewObject(forEntityName: "Spotlight", into: backgroundcontext) as! Spotlight
+        let spotlight =
+            NSEntityDescription.insertNewObject(forEntityName: "Spotlight",
+                into: backgroundcontext) as! Spotlight // swiftlint:disable:this force_cast
         spotlight.name = productData.pName
         spotlight.spotlightDescription = productData.pDescription
         spotlight.bannerURL = productData.pImageURL
-        
+
         try? backgroundcontext.save()
     }
 
     private func createProduct(_ productData: DigioStoreProduct) {
+        // swiftlint:disable:next force_cast
         let product = NSEntityDescription.insertNewObject(forEntityName: "Product", into: backgroundcontext) as! Product
         product.name = productData.pName
         product.productDescription = productData.pDescription
         product.imageURL = productData.pImageURL
-        
+
         try? backgroundcontext.save()
     }
 
     private func createCash(_ productData: DigioStoreProduct) {
+        // swiftlint:disable:next force_cast
         let cash = NSEntityDescription.insertNewObject(forEntityName: "Cash", into: backgroundcontext) as! Cash
         cash.title = productData.pName
         cash.cashDescription = productData.pDescription
@@ -95,9 +99,9 @@ class DigioProductsManager {
         let fetchRequest = NSFetchRequest<Cash>(entityName: "Cash")
         fetchRequest.fetchLimit = 1
         fetchRequest.predicate = NSPredicate(format: "title == %@", title)
-        
+
         var cash: Cash?
-        
+
         mainContext.performAndWait {
             do {
                 let cashData = try mainContext.fetch(fetchRequest)
@@ -116,9 +120,9 @@ class DigioProductsManager {
         let fetchRequest = NSFetchRequest<Product>(entityName: "Product")
         fetchRequest.fetchLimit = 1
         fetchRequest.predicate = NSPredicate(format: "name == %@", name)
-        
+
         var product: Product?
-        
+
         mainContext.performAndWait {
             do {
                 let products = try mainContext.fetch(fetchRequest)
@@ -127,15 +131,15 @@ class DigioProductsManager {
                 print("Failed to fetch Product data: \(error)")
             }
         }
-        
+
         return product
     }
 
     func fetchProducts() -> [Product]? {
         let fetchRequest = NSFetchRequest<Product>(entityName: "Product")
-        
+
         var products: [Product]?
-        
+
         mainContext.performAndWait {
             do {
                 products = try mainContext.fetch(fetchRequest)
@@ -143,19 +147,19 @@ class DigioProductsManager {
                 print("Failed to fetch products: \(error)")
             }
         }
-        
+
         return products
     }
-    
+
     // MARK: - Fetch Spotlight
 
     func fetchSpotlight(withName name: String) -> Spotlight? {
         let fetchRequest = NSFetchRequest<Spotlight>(entityName: "Spotlight")
         fetchRequest.fetchLimit = 1
         fetchRequest.predicate = NSPredicate(format: "name == %@", name)
-        
+
         var spotlight: Spotlight?
-        
+
         mainContext.performAndWait {
             do {
                 let spotlights = try mainContext.fetch(fetchRequest)
@@ -164,15 +168,15 @@ class DigioProductsManager {
                 print("Failed to fetch Spotlight data: \(error)")
             }
         }
-        
+
         return spotlight
     }
 
     func fetchSpotlights() -> [Spotlight]? {
         let fetchRequest = NSFetchRequest<Spotlight>(entityName: "Spotlight")
-        
+
         var spotlights: [Spotlight]?
-        
+
         mainContext.performAndWait {
             do {
                 spotlights = try mainContext.fetch(fetchRequest)
@@ -180,7 +184,7 @@ class DigioProductsManager {
                 print("Failed to fetch spotlights: \(error)")
             }
         }
-        
+
         return spotlights
     }
 }

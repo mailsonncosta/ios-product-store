@@ -11,14 +11,14 @@ import CoreData
 
 @objc(Spotlight)
 public class Spotlight: NSManagedObject {
-    
+
     enum CodingKeys: String, CodingKey {
         case name, bannerURL, spotlightDescription
     }
 
     required public convenience init(context: NSManagedObjectContext, dictionary: [String: Any]) throws {
         self.init(context: context)
-        
+
         self.name = dictionary["name"] as? String
         self.bannerURL = dictionary["bannerURL"] as? String
         self.spotlightDescription = dictionary["description"] as? String

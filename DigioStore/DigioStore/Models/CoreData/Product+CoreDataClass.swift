@@ -11,14 +11,14 @@ import CoreData
 
 @objc(Product)
 public class Product: NSManagedObject {
-    
+
     enum CodingKeys: String, CodingKey {
         case name, imageURL, productDescription
     }
 
     required public convenience init(context: NSManagedObjectContext, dictionary: [String: Any]) throws {
         self.init(context: context)
-        
+
         self.name = dictionary["name"] as? String
         self.imageURL = dictionary["imageURL"] as? String
         self.productDescription = dictionary["description"] as? String
@@ -43,5 +43,5 @@ public class Product: NSManagedObject {
         try container.encode(imageURL, forKey: .imageURL)
         try container.encode(productDescription, forKey: .productDescription)
     }
-    
+
 }
