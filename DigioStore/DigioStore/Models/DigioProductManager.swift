@@ -91,10 +91,10 @@ class DigioProductsManager {
     // MARK: - Fetch
     // MARK: - Fetch Cash
 
-    func fetchCash(withName name: String) -> Cash? {
+    func fetchCash(withName title: String) -> Cash? {
         let fetchRequest = NSFetchRequest<Cash>(entityName: "Cash")
         fetchRequest.fetchLimit = 1
-        fetchRequest.predicate = NSPredicate(format: "title == %@", name)
+        fetchRequest.predicate = NSPredicate(format: "title == %@", title)
         
         var cash: Cash?
         

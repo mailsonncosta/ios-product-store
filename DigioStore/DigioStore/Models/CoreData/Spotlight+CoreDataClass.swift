@@ -16,6 +16,14 @@ public class Spotlight: NSManagedObject {
         case name, bannerURL, spotlightDescription
     }
 
+    required public convenience init(context: NSManagedObjectContext, dictionary: [String: Any]) throws {
+        self.init(context: context)
+        
+        self.name = dictionary["name"] as? String
+        self.bannerURL = dictionary["bannerURL"] as? String
+        self.spotlightDescription = dictionary["description"] as? String
+    }
+
     required convenience public init(from decoder: Decoder) throws {
         guard let context = decoder.userInfo[CodingUserInfoKey.managedObjectContext] as? NSManagedObjectContext else {
             throw DecoderConfigurationError.missingManagedObjectContext

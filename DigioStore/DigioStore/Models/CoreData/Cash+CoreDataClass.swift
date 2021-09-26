@@ -16,6 +16,14 @@ public class Cash: NSManagedObject {
         case title, bannerURL, cashDescription
     }
 
+    required public convenience init(context: NSManagedObjectContext, dictionary: [String: Any]) throws {
+        self.init(context: context)
+        
+        self.title = dictionary["title"] as? String
+        self.bannerURL = dictionary["bannerURL"] as? String
+        self.cashDescription = dictionary["description"] as? String
+    }
+
     required convenience public init(from decoder: Decoder) throws {
         guard let context = decoder.userInfo[CodingUserInfoKey.managedObjectContext] as? NSManagedObjectContext else {
             throw DecoderConfigurationError.missingManagedObjectContext

@@ -16,6 +16,14 @@ public class Product: NSManagedObject {
         case name, imageURL, productDescription
     }
 
+    required public convenience init(context: NSManagedObjectContext, dictionary: [String: Any]) throws {
+        self.init(context: context)
+        
+        self.name = dictionary["name"] as? String
+        self.imageURL = dictionary["imageURL"] as? String
+        self.productDescription = dictionary["description"] as? String
+    }
+
     required convenience public init(from decoder: Decoder) throws {
         guard let context = decoder.userInfo[CodingUserInfoKey.managedObjectContext] as? NSManagedObjectContext else {
             throw DecoderConfigurationError.missingManagedObjectContext
