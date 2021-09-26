@@ -31,25 +31,26 @@ A única biblioteca adicionada foi a do swiftlint, pois faciliata observar os pr
 ## Como exercutar o projeto
 
    Para executar o projeto, basta fazer o clone e rodar na pasta que contem o arquivo de extensão **.workspace** o comando abaixo:
-       #### pod install
+   
+       pod install
 
    Caso você não tenha o cocoapods instalado na sua máquina, por favor seguir os passos abaixo:
    
     1) Digite no terminal:
-        #### sudo gem install cocoapods
+        sudo gem install cocoapods
         - O Gem será instalado no Ruby dentro da biblioteca do sistema.
         
     2) Ou você pode usar:
-        #### sudo gem install -n /usr/local/bin cocoapods
+        sudo gem install -n /usr/local/bin cocoapods
         
     3) Se houver um erro "o activesupport requer a versão Ruby> = 2.xx", instale o último suporte ativo:
-        #### sudo gem install activesupport
+        sudo gem install activesupport
         
     4) Em seguida, você precisa configurar o repositório principal dos cocoapods. Digite no terminal:
-        #### pod setup
+        pod setup
         - Aguarde o download.
         
     5) Em seguida, no terminal cd,vá no diretório onde você clonou o projeto (Onde contém o arquivo de extensão **.workspace**), e digite:
-        #### pod install
+        pod install
 
 
