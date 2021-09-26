@@ -18,6 +18,8 @@
 		C71A9BD226FFD9E400528F12 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C71A9BD026FFD9E400528F12 /* LaunchScreen.storyboard */; };
 		C71A9BDD26FFD9E400528F12 /* DigioStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71A9BDC26FFD9E400528F12 /* DigioStoreTests.swift */; };
 		C71A9BE826FFD9E400528F12 /* DigioStoreUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71A9BE726FFD9E400528F12 /* DigioStoreUITests.swift */; };
+		C78E489927003211006A1D0F /* DigioApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78E489827003211006A1D0F /* DigioApi.swift */; };
+		C78E489E270034DE006A1D0F /* SectionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78E489D270034DE006A1D0F /* SectionCollectionViewCell.swift */; };
 		C7F4000A270008F30049230E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F40009270008F30049230E /* DetailViewController.swift */; };
 		C7F4001227000E870049230E /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F4001127000E870049230E /* NetworkHelper.swift */; };
 		C7F4FF3126FFE21F0049230E /* Cash+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F4FF2B26FFE21F0049230E /* Cash+CoreDataClass.swift */; };
@@ -81,6 +83,8 @@
 		C71A9BE326FFD9E400528F12 /* DigioStoreUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DigioStoreUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C71A9BE726FFD9E400528F12 /* DigioStoreUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigioStoreUITests.swift; sourceTree = "<group>"; };
 		C71A9BE926FFD9E500528F12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C78E489827003211006A1D0F /* DigioApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigioApi.swift; sourceTree = "<group>"; };
+		C78E489D270034DE006A1D0F /* SectionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionCollectionViewCell.swift; sourceTree = "<group>"; };
 		C7F40009270008F30049230E /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		C7F4001127000E870049230E /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		C7F4FF2B26FFE21F0049230E /* Cash+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cash+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -223,6 +227,7 @@
 				C7F4FF3D26FFE25A0049230E /* CoreData */,
 				C7F4FF4526FFE4500049230E /* DigioProductStore.swift */,
 				C7F4FF7E26FFECBC0049230E /* DigioProductManager.swift */,
+				C78E489D270034DE006A1D0F /* SectionCollectionViewCell.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -244,6 +249,7 @@
 			children = (
 				C7F4FF4A26FFE4A90049230E /* Errors */,
 				C7F4001127000E870049230E /* NetworkHelper.swift */,
+				C78E489827003211006A1D0F /* DigioApi.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -526,6 +532,7 @@
 				C7F4FF8726FFEE480049230E /* CoreDataTask.swift in Sources */,
 				C7F4FF3326FFE21F0049230E /* Product+CoreDataClass.swift in Sources */,
 				C7F4FF7F26FFECBC0049230E /* DigioProductManager.swift in Sources */,
+				C78E489E270034DE006A1D0F /* SectionCollectionViewCell.swift in Sources */,
 				C71A9BC326FFD9E200528F12 /* AppDelegate.swift in Sources */,
 				C7F4FF7226FFE7A60049230E /* CodingUserInfoKeyExt.swift in Sources */,
 				C7F4000A270008F30049230E /* DetailViewController.swift in Sources */,
@@ -538,6 +545,7 @@
 				C7F4FF3626FFE21F0049230E /* Spotlight+CoreDataProperties.swift in Sources */,
 				C71A9BC526FFD9E200528F12 /* SceneDelegate.swift in Sources */,
 				C7F4FF5F26FFE5BF0049230E /* Spotlight+DigioStoreProduct.swift in Sources */,
+				C78E489927003211006A1D0F /* DigioApi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
