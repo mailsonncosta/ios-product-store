@@ -19,6 +19,7 @@
 		C71A9BDD26FFD9E400528F12 /* DigioStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71A9BDC26FFD9E400528F12 /* DigioStoreTests.swift */; };
 		C71A9BE826FFD9E400528F12 /* DigioStoreUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71A9BE726FFD9E400528F12 /* DigioStoreUITests.swift */; };
 		C7F4000A270008F30049230E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F40009270008F30049230E /* DetailViewController.swift */; };
+		C7F4001227000E870049230E /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F4001127000E870049230E /* NetworkHelper.swift */; };
 		C7F4FF3126FFE21F0049230E /* Cash+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F4FF2B26FFE21F0049230E /* Cash+CoreDataClass.swift */; };
 		C7F4FF3226FFE21F0049230E /* Cash+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F4FF2C26FFE21F0049230E /* Cash+CoreDataProperties.swift */; };
 		C7F4FF3326FFE21F0049230E /* Product+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F4FF2D26FFE21F0049230E /* Product+CoreDataClass.swift */; };
@@ -81,6 +82,7 @@
 		C71A9BE726FFD9E400528F12 /* DigioStoreUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigioStoreUITests.swift; sourceTree = "<group>"; };
 		C71A9BE926FFD9E500528F12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C7F40009270008F30049230E /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		C7F4001127000E870049230E /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		C7F4FF2B26FFE21F0049230E /* Cash+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cash+CoreDataClass.swift"; sourceTree = "<group>"; };
 		C7F4FF2C26FFE21F0049230E /* Cash+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cash+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C7F4FF2D26FFE21F0049230E /* Product+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Product+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				C7F4FF4A26FFE4A90049230E /* Errors */,
+				C7F4001127000E870049230E /* NetworkHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -527,6 +530,7 @@
 				C7F4FF7226FFE7A60049230E /* CodingUserInfoKeyExt.swift in Sources */,
 				C7F4000A270008F30049230E /* DetailViewController.swift in Sources */,
 				C7F4FF5A26FFE5A10049230E /* Product+DigioStoreProduct.swift in Sources */,
+				C7F4001227000E870049230E /* NetworkHelper.swift in Sources */,
 				C7F4FF4626FFE4500049230E /* DigioProductStore.swift in Sources */,
 				C7F4FF3226FFE21F0049230E /* Cash+CoreDataProperties.swift in Sources */,
 				C7F4FF6426FFE5D20049230E /* Cash+DigioStoreProduct.swift in Sources */,
